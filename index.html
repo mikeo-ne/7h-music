@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7H Music Group — The Home of Hit Music</title>
+<meta name="description" content="7H Music Group is a full-service music label, artist management and publishing company. Home to Baranga and Mr Fallback.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta property="og:title" content="7H Music Group — The Home of Hit Music">
+<meta property="og:description" content="Full-service record label, management and publishing. Home to Baranga &amp; Mr Fallback — Kampala to the world.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/hero.jpg">
+<style>
+  :root{
+    --bg:#0a0a0b;
+    --bg-2:#101012;
+    --ink:#f4f1ea;
+    --muted:#8f8b83;
+    --line:rgba(244,241,234,.12);
+    --gold:#c9a24b;
+    --spot:#1db954;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+button{-webkit-tap-highlight-color:transparent}
+::selection{background:var(--gold);color:#0a0a0b}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+  .wrap{width:min(1440px,92vw);margin:0 auto}
+  .eyebrow{
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;display:inline-flex;align-items:center;gap:14px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--gold);display:inline-block}
+  .section{padding:130px 0;position:relative}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:64px;flex-wrap:wrap}
+  .section-title{
+    font-size:clamp(38px,6vw,84px);font-weight:800;line-height:.96;
+    text-transform:uppercase;letter-spacing:-.02em;margin-top:22px;
+  }
+  .section-title .out{color:transparent;-webkit-text-stroke:1px rgba(244,241,234,.55)}
+  .head-link{
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;
+    border:1px solid var(--line);padding:16px 28px;border-radius:100px;
+    transition:.4s var(--ease);white-space:nowrap;
+  }
+  .head-link:hover{background:var(--ink);color:#0a0a0b;border-color:var(--ink)}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    transition:background .5s var(--ease),border-color .5s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .logo{display:flex;align-items:baseline;gap:10px;font-weight:900}
+  .logo .mark{font-size:30px;letter-spacing:-.04em;line-height:1;border:2px solid var(--ink);padding:4px 9px 6px;border-radius:4px}
+  .logo .sub{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .nav-links{display:flex;gap:38px;list-style:none}
+  .nav-links a{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--muted);transition:color .3s;position:relative;padding:6px 0}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;background:var(--ink);color:#0a0a0b;padding:13px 26px;border-radius:100px;transition:.35s var(--ease)}
+  .nav-cta:hover{background:var(--gold)}
+  .burger{display:none;flex-direction:column;gap:6px;background:none;border:0;cursor:pointer;padding:8px;z-index:120}
+  .burger span{width:28px;height:2px;background:var(--ink);transition:.35s var(--ease)}
+  .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .mobile-menu{
+    position:fixed;inset:0;z-index:110;background:#0a0a0b;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;
+    clip-path:circle(0% at calc(100% - 50px) 40px);transition:clip-path .7s var(--ease);
+  }
+  .mobile-menu.open{clip-path:circle(150% at calc(100% - 50px) 40px)}
+  .mobile-menu a{font-size:clamp(34px,9vw,60px);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;padding:10px 0;opacity:0;transform:translateY(30px);transition:.5s var(--ease)}
+  .mobile-menu.open a{opacity:1;transform:none}
+  .mobile-menu.open a:nth-child(1){transition-delay:.15s}
+  .mobile-menu.open a:nth-child(2){transition-delay:.22s}
+  .mobile-menu.open a:nth-child(3){transition-delay:.29s}
+  .mobile-menu.open a:nth-child(4){transition-delay:.36s}
+  .mobile-menu.open a:nth-child(5){transition-delay:.43s}
+  .mobile-menu.open a:nth-child(6){transition-delay:.5s}
+  .mobile-menu a:hover{color:var(--gold)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-bg{
+    position:absolute;inset:0;
+    background:url('images/hero.jpg') center 30%/cover no-repeat;
+    transform:scale(1.08);animation:heroZoom 14s var(--ease) forwards;
+    filter:brightness(.55) contrast(1.05);
+  }
+  @keyframes heroZoom{to{transform:scale(1)}}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,.15) 40%,rgba(10,10,11,.92) 100%)}
+  .hero-inner{position:relative;width:100%;padding:140px 0 70px}
+  .hero-tag{
+    font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);
+    font-weight:700;margin-bottom:26px;display:flex;align-items:center;gap:16px;
+    opacity:0;animation:rise 1s var(--ease) .3s forwards;
+  }
+  .hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold)}
+  .hero h1{font-size:clamp(58px,13.5vw,200px);font-weight:900;line-height:.84;text-transform:uppercase;letter-spacing:-.03em}
+  .hero h1 .l1{display:block;opacity:0;animation:rise 1.1s var(--ease) .5s forwards}
+  .hero h1 .l2{display:block;color:transparent;-webkit-text-stroke:2px var(--ink);opacity:0;animation:rise 1.1s var(--ease) .7s forwards}
+  @keyframes rise{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:none}}
+  .hero-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-top:56px;flex-wrap:wrap;opacity:0;animation:rise 1.1s var(--ease) .95s forwards}
+  .hero-sub{max-width:440px;color:rgba(244,241,234,.75);font-size:15px;line-height:1.7}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;padding:18px 34px;border-radius:100px;transition:.35s var(--ease)}
+  .btn-solid{background:var(--ink);color:#0a0a0b}
+  .btn-solid:hover{background:var(--gold)}
+  .btn-ghost{border:1px solid rgba(244,241,234,.4);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink);background:rgba(244,241,234,.08)}
+  .btn-spotify{background:var(--spot);color:#04140a}
+  .btn-spotify:hover{background:#24e065;color:#04140a}
+  .btn .arr{transition:transform .35s var(--ease)}
+  .btn:hover .arr{transform:translateX(5px)}
+  .btn svg{width:16px;height:16px;fill:currentColor}
+  .scroll-hint{position:absolute;right:4vw;bottom:70px;writing-mode:vertical-rl;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px}
+  .scroll-hint::after{content:"";width:1px;height:60px;background:linear-gradient(var(--muted),transparent);animation:drop 2s var(--ease) infinite}
+  @keyframes drop{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  /* ---------- MARQUEE ---------- */
+  .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);overflow:hidden;padding:20px 0;white-space:nowrap}
+  .ticker-track{display:inline-flex;animation:scroll 34s linear infinite;will-change:transform}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  .ticker span{font-size:14px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--muted);padding:0 26px;display:inline-flex;align-items:center;gap:26px}
+  .ticker span b{color:var(--gold);font-weight:800}
+  .ticker span::after{content:"✦";color:var(--gold);font-size:10px}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- ROSTER ---------- */
+  .roster{border-bottom:1px solid var(--line)}
+  .roster-list{border-top:1px solid var(--line)}
+  .artist-row{display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:30px;padding:38px 20px;border-bottom:1px solid var(--line);cursor:pointer;position:relative;transition:padding .45s var(--ease)}
+  .artist-row .idx{font-size:12px;color:var(--muted);letter-spacing:.2em;font-weight:700}
+  .artist-row .name{
+    font-size:clamp(34px,6.2vw,86px);font-weight:800;text-transform:uppercase;
+    letter-spacing:-.02em;line-height:1;color:var(--muted);
+    transition:color .4s var(--ease),transform .45s var(--ease);cursor:pointer;
+  }
+  .artist-row .meta{text-align:right;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:700;line-height:2}
+  .artist-row .meta .genre{color:var(--ink)}
+  .artist-row .thumb{display:none}
+  .artist-row::before{content:"";position:absolute;inset:0;background:var(--bg-2);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease);z-index:-1}
+  .artist-row:not(.soon):hover::before{transform:scaleY(1);transform-origin:top}
+  .artist-row:not(.soon):hover{padding-left:40px}
+  .artist-row:not(.soon):hover .name{color:var(--ink);transform:translateX(6px)}
+  .artist-row:not(.soon):hover .idx{color:var(--gold)}
+  .artist-row.soon{cursor:default}
+  .artist-row.soon .name{color:transparent;-webkit-text-stroke:1px rgba(244,241,234,.3)}
+  .artist-row.soon::before{display:none}
+
+  .spot-link{
+    display:inline-flex;align-items:center;gap:8px;margin-top:12px;
+    border:1px solid rgba(29,185,84,.55);color:var(--spot);
+    padding:9px 16px;border-radius:100px;font-size:10px;letter-spacing:.2em;
+    transition:.3s var(--ease);
+  }
+  .spot-link svg{width:13px;height:13px;fill:currentColor}
+  .spot-link:hover{background:var(--spot);color:#04140a;border-color:var(--spot)}
+
+  /* "joining soon" prospect marker (King Avo) */
+  .soon-tag{color:var(--gold);font-weight:800;display:inline-block;margin:4px 0}
+  .soon-ribbon{
+    position:absolute;top:6px;left:6px;z-index:4;background:var(--gold);color:#0a0a0b;
+    font-size:8px;letter-spacing:.18em;font-weight:900;padding:3px 7px;border-radius:3px;
+    text-transform:uppercase;
+  }
+  .artist-row.prospect .name{font-style:italic}
+
+  /* platform pills inside roster meta (Spotify + Apple Music) */
+  .meta-links{display:flex;gap:8px;justify-content:flex-end;margin-top:14px;flex-wrap:wrap}
+  .spot-link.am-link{border-color:rgba(250,45,72,.5);color:#ff6b7d}
+  .spot-link.am-link:hover{background:#fa2d48;border-color:#fa2d48;color:#fff}
+
+  /* ---------- FUTURE / NEXT UP ---------- */
+  .future{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .future-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+  .future-media{position:relative;border-radius:10px;overflow:hidden}
+  .future-media img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;filter:grayscale(.25) contrast(1.03);transition:transform .9s var(--ease),filter .6s}
+  .future-media:hover img{transform:scale(1.04);filter:grayscale(0)}
+  .future-ribbon{position:absolute;top:20px;left:20px;z-index:2;background:var(--gold);color:#0a0a0b;font-size:10px;letter-spacing:.22em;font-weight:900;padding:9px 16px;border-radius:100px;text-transform:uppercase;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  .future-name{font-size:clamp(46px,7vw,108px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.03em;margin:22px 0 16px}
+  .future-genre{color:var(--gold);font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:800;margin-bottom:24px}
+  .future-bio{color:rgba(244,241,234,.72);font-size:16px;line-height:1.85;max-width:560px}
+  .future-tracks{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+  .future-tracks span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:8px 15px}
+  .future-actions{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .btn-apple{border:1px solid rgba(244,241,234,.4);color:var(--ink)}
+  .btn-apple:hover{background:#fa2d48;border-color:#fa2d48;color:#fff}
+  .btn-tiktok{border:1px solid rgba(244,241,234,.4);color:var(--ink)}
+  .btn-tiktok:hover{background:#fff;border-color:#fff;color:#000}
+  .btn-tiktok svg{width:15px;height:15px;fill:currentColor}
+  .btn-youtube{border:1px solid rgba(244,241,234,.4);color:var(--ink)}
+  .btn-youtube:hover{background:#ff0000;border-color:#ff0000;color:#fff}
+  .btn-youtube svg{width:16px;height:16px;fill:currentColor}
+  .future-note{margin-top:26px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  @media(max-width:1024px){.future-grid{grid-template-columns:1fr;gap:44px}}
+
+  /* Spotify badge shown on the roster thumbnail (always visible incl. mobile) */
+  .thumb .spot-badge{
+    position:absolute;left:6px;bottom:6px;z-index:3;width:22px;height:22px;border-radius:50%;
+    background:var(--spot);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.5);
+  }
+  .thumb .spot-badge svg{width:13px;height:13px;fill:#04140a}
+
+  /* disabled / "coming soon" placeholder links (no real URL yet) */
+  .off{opacity:.32;cursor:not-allowed;pointer-events:none}
+
+  /* division card as a full link */
+  a.div-card{display:flex;align-items:flex-end;text-decoration:none;color:inherit}
+  a.div-card .go svg line{stroke:currentColor}
+
+  /* offset anchor scrolling so fixed header doesn't cover section tops */
+  section[id],footer{scroll-margin-top:80px}
+
+  /* photo slot: monogram shows until a real photo is dropped in */
+  .thumb{position:relative;width:64px;height:80px;border-radius:4px;overflow:hidden;background:linear-gradient(150deg,#1e1c18,#0c0c0e);border:1px solid var(--line)}
+  .thumb .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;color:var(--gold);letter-spacing:-.02em}
+  .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s var(--ease)}
+  .thumb img.loaded{opacity:1}
+
+  .roster-preview{
+    position:fixed;top:0;left:0;width:300px;height:380px;z-index:90;
+    pointer-events:none;opacity:0;transform:scale(.85);
+    transition:opacity .35s var(--ease);
+    border-radius:6px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6);
+    background:linear-gradient(150deg,#1e1c18,#0c0c0e);border:1px solid var(--line);
+  }
+  .roster-preview.on{opacity:1;transform:scale(1)}
+  .roster-preview .pv-mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:110px;font-weight:900;color:rgba(201,162,75,.45);letter-spacing:-.03em}
+  .roster-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s var(--ease)}
+  .roster-preview img.loaded{opacity:1}
+  @media (hover:none){.roster-preview{display:none}}
+
+  /* ---------- RELEASES ---------- */
+  .release-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .release{
+    position:relative;border-radius:8px;overflow:hidden;aspect-ratio:1/1;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    isolation:isolate;cursor:pointer;
+  }
+  .release .cover-bg{position:absolute;inset:0;z-index:-2;transition:transform .8s var(--ease)}
+  .release img.cover-bg{width:100%;height:100%;object-fit:cover}
+  .release::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.85) 100%)}
+  .release:hover .cover-bg{transform:scale(1.07)}
+  .cover-art{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:26px;z-index:-2}
+  .cover-art .big{font-size:clamp(28px,3vw,42px);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.02em}
+  .cover-art .seven{font-size:64px;font-weight:900;opacity:.18;position:absolute;right:18px;bottom:8px;line-height:1}
+  .cover-art .tag{font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:800;opacity:.85}
+  .release-info{padding:26px;position:relative;z-index:2}
+  .release-info .r-type{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:800}
+  .release-info h3{font-size:22px;font-weight:800;text-transform:uppercase;margin:8px 0 4px;letter-spacing:-.01em}
+  .release-info p{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,234,.65);font-weight:700}
+  .play-btn{
+    position:absolute;top:22px;right:22px;z-index:3;
+    width:52px;height:52px;border-radius:50%;background:rgba(10,10,11,.55);
+    backdrop-filter:blur(6px);border:1px solid rgba(244,241,234,.35);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    opacity:0;transform:translateY(-8px);transition:.4s var(--ease);
+  }
+  .play-btn svg{width:16px;height:16px;fill:var(--ink);margin-left:2px}
+  .release:hover .play-btn{opacity:1;transform:none}
+  .play-btn:hover{background:var(--spot);border-color:var(--spot)}
+  .play-btn:hover svg{fill:#04140a}
+
+  /* dual-platform (Spotify + Apple Music) actions on release & news cards */
+  .corner-btns{position:absolute;top:18px;right:18px;z-index:5;display:flex;gap:10px}
+  .corner-btn{
+    width:44px;height:44px;border-radius:50%;background:rgba(10,10,11,.6);
+    backdrop-filter:blur(6px);border:1px solid rgba(244,241,234,.35);
+    display:flex;align-items:center;justify-content:center;
+    opacity:.55;transform:translateY(-6px);transition:.4s var(--ease);
+  }
+  .corner-btn svg{width:19px;height:19px;fill:var(--ink)}
+  .release:hover .corner-btn,.release:focus-within .corner-btn{opacity:1;transform:none}
+  .corner-btn.spot:hover{background:var(--spot);border-color:var(--spot)}
+  .corner-btn.spot:hover svg{fill:#04140a}
+  .corner-btn.am:hover{background:#fa2d48;border-color:#fa2d48}
+  .corner-btn.am:hover svg{fill:#fff}
+  @media (hover:none){.corner-btn{opacity:1;transform:none}}
+
+  .platforms{display:flex;gap:10px;margin-top:15px;flex-wrap:wrap}
+  .plat-link{
+    display:inline-flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:800;padding:9px 15px;border-radius:100px;
+    border:1px solid var(--line);transition:.3s var(--ease);
+  }
+  .plat-link svg{width:13px;height:13px;fill:currentColor}
+  .plat-link.spot{color:var(--spot);border-color:rgba(29,185,84,.45)}
+  .plat-link.spot:hover{background:var(--spot);color:#04140a;border-color:var(--spot)}
+  .plat-link.am{color:#ff6b7d;border-color:rgba(250,45,72,.45)}
+  .plat-link.am:hover{background:#fa2d48;color:#fff;border-color:#fa2d48}
+
+  /* ---------- LISTEN / SPOTIFY EMBEDS ---------- */
+  .listen-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .listen-card{
+    background:var(--bg-2);border:1px solid var(--line);border-radius:12px;
+    padding:22px 22px 24px;transition:border-color .4s var(--ease),transform .45s var(--ease);
+  }
+  .listen-card:hover{border-color:rgba(29,185,84,.45);transform:translateY(-4px)}
+  .lc-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+  .lc-btns{display:flex;gap:8px;flex-wrap:wrap}
+  .lc-pill{
+    display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:800;color:var(--spot);
+  }
+  .lc-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--spot);box-shadow:0 0 12px var(--spot)}
+  .lc-now{font-size:13px;font-weight:800;letter-spacing:.02em;border-bottom:1px solid var(--line);padding-bottom:2px;transition:.3s}
+  .lc-now:hover{color:var(--spot);border-color:var(--spot)}
+  .listen-card iframe{width:100%;height:clamp(330px,44vw,432px);border:0;border-radius:10px;display:block;background:#000}
+
+  /* ---------- DIVISIONS ---------- */
+  .divisions{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .div-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .div-card{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:3/4;display:flex;align-items:flex-end}
+  .div-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.25) brightness(.7);transition:transform .9s var(--ease),filter .6s}
+  .div-card:hover img{transform:scale(1.06);filter:grayscale(0) brightness(.85)}
+  .div-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(10,10,11,.92) 100%)}
+  .div-body{position:relative;z-index:2;padding:34px;width:100%}
+  .div-body .num{font-size:11px;letter-spacing:.3em;color:var(--gold);font-weight:800}
+  .div-body h3{font-size:clamp(26px,2.6vw,40px);font-weight:800;text-transform:uppercase;margin:12px 0 10px;letter-spacing:-.01em}
+  .div-body p{font-size:13.5px;line-height:1.65;color:rgba(244,241,234,.7);max-width:320px}
+  .div-body .go{display:inline-flex;align-items:center;gap:10px;margin-top:18px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:800}
+  .div-body .go svg{width:22px;height:1px;position:relative;overflow:visible}
+  .div-body .go svg::after{content:"→";position:absolute;left:14px;top:-9px;font-size:13px}
+  .div-card:hover .go{color:var(--gold)}
+
+  /* ---------- STATS ---------- */
+  .stats{border-bottom:1px solid var(--line);padding:90px 0}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+  .stat .num{font-size:clamp(44px,6vw,84px);font-weight:900;letter-spacing:-.03em;line-height:1}
+  .stat .num .gold{color:var(--gold)}
+  .stat .lbl{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:14px}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+  .about-img{position:relative;border-radius:8px;overflow:hidden}
+  .about-img img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(.15)}
+  .about-img .badge{position:absolute;left:-28px;bottom:44px;background:var(--gold);color:#0a0a0b;padding:22px 30px;border-radius:8px;font-weight:900;text-transform:uppercase;line-height:1.3;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+  .about-img .badge b{display:block;font-size:30px;letter-spacing:-.02em}
+  .about-img .badge span{font-size:10px;letter-spacing:.28em}
+  .about-copy h2{font-size:clamp(34px,4.4vw,60px);font-weight:800;text-transform:uppercase;line-height:1.02;letter-spacing:-.02em;margin:24px 0 28px}
+  .about-copy p{color:rgba(244,241,234,.72);font-size:15px;line-height:1.85;margin-bottom:18px}
+  .about-sign{margin-top:30px;display:flex;align-items:center;gap:18px;border-top:1px solid var(--line);padding-top:28px}
+  .about-sign .who b{display:block;font-size:14px;letter-spacing:.04em}
+  .about-sign .who span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+  .about-sign .line{flex:1;height:1px;background:var(--line)}
+  /* Mike 1ne — in-house producer links */
+  .plink{color:var(--ink);font-weight:700;border-bottom:1px solid var(--gold);padding-bottom:1px;transition:.3s;white-space:nowrap}
+  .plink:hover{color:var(--gold);border-color:var(--gold)}
+  .studio-cta{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;color:var(--gold)}
+  .studio-cta::after{content:"→";transition:transform .35s var(--ease)}
+  .studio-cta:hover::after{transform:translateX(5px)}
+
+  /* ---------- NEWS ---------- */
+  .news{background:var(--bg-2);border-top:1px solid var(--line)}
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .news-card{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg);transition:transform .45s var(--ease),border-color .45s;display:block;cursor:pointer}
+  .news-card:hover{transform:translateY(-8px);border-color:rgba(29,185,84,.5)}
+  .news-card .ph{aspect-ratio:16/10;overflow:hidden;position:relative}
+  .news-card .ph .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:76px;font-weight:900;color:rgba(201,162,75,.5);letter-spacing:-.03em;z-index:0}
+  .news-card .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease),transform .8s var(--ease),filter .6s;filter:grayscale(.2)}
+  .news-card .ph img.loaded{opacity:1}
+  .news-card:hover .ph img{transform:scale(1.06);filter:grayscale(0)}
+  .news-body{padding:28px}
+  .news-body .date{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:800}
+  .news-body h3{font-size:19px;font-weight:800;line-height:1.3;margin:14px 0 12px;text-transform:uppercase;letter-spacing:-.01em}
+  .news-body p{font-size:13.5px;line-height:1.65;color:var(--muted)}
+  .news-body .more{display:inline-block;margin-top:18px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:800;color:var(--ink)}
+  .news-card:hover .more{color:var(--spot)}
+
+  /* ---------- CTA / CONTACT ---------- */
+  .cta{text-align:center;padding:160px 0;position:relative;overflow:hidden;border-top:1px solid var(--line)}
+  .cta h2{font-size:clamp(48px,10vw,150px);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.03em}
+  .cta h2 .out{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+  .cta p{color:var(--muted);max-width:520px;margin:34px auto 44px;font-size:15px;line-height:1.7}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:110px;text-align:left;align-items:start}
+  .contact-info h3{font-size:clamp(26px,3vw,40px);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;margin:20px 0 26px}
+  .contact-info .row{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .contact-info .row span{color:var(--muted);letter-spacing:.2em;text-transform:uppercase;font-size:11px;font-weight:700}
+  .contact-info .row a{font-weight:700;letter-spacing:.05em}
+  .contact-info .row a:hover{color:var(--gold)}
+  .contact-form{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:44px}
+  .field{margin-bottom:24px}
+  .field label{display:block;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:10px}
+  .field input,.field select,.field textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);font-family:inherit;font-size:15px;padding:12px 2px;outline:none;transition:border-color .3s}
+  .field select option{background:#101012}
+  .field textarea{resize:vertical;min-height:90px}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+  .field input[type="file"]{border:1px dashed var(--line);border-radius:10px;padding:16px;cursor:pointer;background:rgba(201,162,75,.04);color:var(--muted)}
+  .field input[type="file"]::file-selector-button{background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:inherit;font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin-right:14px;cursor:pointer;transition:.3s}
+  .field input[type="file"]::file-selector-button:hover{background:var(--gold);color:#0a0a0b}
+  .file-hint{font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:.03em;line-height:1.5}
+  .contact-form .btn-solid{width:100%;justify-content:center;border:0;cursor:pointer;font-family:inherit}
+  .form-note{font-size:11px;color:var(--muted);text-align:center;margin-top:16px;letter-spacing:.08em}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:80px 0 40px;background:#070708}
+  .foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:50px;padding-bottom:60px;border-bottom:1px solid var(--line)}
+  .foot-brand .logo{margin-bottom:22px}
+  .foot-brand p{color:var(--muted);font-size:13.5px;line-height:1.7;max-width:300px}
+  .foot-col h4{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:22px}
+  .foot-col a{display:block;font-size:13.5px;color:rgba(244,241,234,.7);padding:7px 0;transition:.3s}
+  .foot-col a:hover{color:var(--ink);transform:translateX(4px)}
+  .foot-col a.spot{color:var(--spot)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:34px;flex-wrap:wrap}
+  .foot-bottom p{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .socials{display:flex;gap:10px}
+  .socials a{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;letter-spacing:.05em;transition:.35s var(--ease)}
+  .socials a:hover{background:var(--gold);border-color:var(--gold);color:#0a0a0b}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(50px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:1024px){
+    .release-grid,.news-grid,.div-grid{grid-template-columns:repeat(2,1fr)}
+    .listen-grid{grid-template-columns:1fr}
+    .stats-grid{grid-template-columns:repeat(2,1fr);gap:50px 20px}
+    .about-grid{grid-template-columns:1fr;gap:60px}
+    .about-img .badge{left:20px}
+    .contact-grid{grid-template-columns:1fr;gap:50px}
+    .foot-top{grid-template-columns:1fr 1fr}
+    .scroll-hint{display:none}
+  }
+  @media(max-width:760px){
+    .nav-links,.nav-cta{display:none}
+    .burger{display:flex}
+    .section{padding:90px 0}
+    .release-grid,.news-grid,.div-grid{grid-template-columns:1fr}
+    .artist-row{grid-template-columns:40px 1fr 64px;gap:16px;padding:26px 6px}
+    .artist-row .meta{display:none}
+    .artist-row .thumb{display:block}
+    .artist-row:not(.soon):hover{padding-left:6px}
+    .artist-row .name{font-size:clamp(28px,8vw,40px)}
+    .hero-foot{margin-top:40px}
+    .foot-top{grid-template-columns:1fr;gap:40px}
+    .contact-form{padding:30px 22px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#home" class="logo">
+      <span class="mark">7H</span>
+      <span class="sub">Music&nbsp;Group</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#roster">Roster</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#divisions">Divisions</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#roster">Roster</a>
+  <a href="#music">Music</a>
+  <a href="#divisions">Divisions</a>
+  <a href="#about">About</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <div class="hero-tag"><span class="dot"></span> New album — Baranga, “Chapters I Never Wrote” out now</div>
+      <h1>
+        <span class="l1">7H Music</span>
+        <span class="l2">Group</span>
+      </h1>
+      <div class="hero-foot">
+        <p class="hero-sub">A full-service record label, artist management and publishing house — home to Baranga and Mr Fallback, and the next voices of the culture.</p>
+        <div class="hero-actions">
+          <a href="#roster" class="btn btn-solid">Meet the Roster <span class="arr">→</span></a>
+          <a href="https://open.spotify.com/artist/5cDK2NGG0OhfT7Z2FpMgxX" target="_blank" rel="noopener noreferrer" class="btn btn-spotify">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>
+            Listen on Spotify
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span><b>New Album</b> Baranga — Chapters I Never Wrote</span>
+    <span>Mr Fallback — Kiwatto (Latest Single)</span>
+    <span>Baranga — Badman · 290K+ streams</span>
+    <span>Mr Fallback — Ndi Solidi Mu</span>
+    <span>Baranga — Party Riddim</span>
+    <span><b>Coming soon</b> King Avo joins the 7H family</span>
+    <span><b>Demos open</b> send your music to 7H</span>
+  </div>
+</div>
+
+<!-- ROSTER -->
+<section class="section roster" id="roster">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">The Roster</span>
+        <h2 class="section-title">The Voices<br><span class="out">of 7H</span></h2>
+      </div>
+      <a href="#contact" class="head-link">Submit Demo →</a>
+    </div>
+    <div class="roster-list reveal" id="rosterList">
+      <div class="artist-row" data-img="images/artist-baranga.jpg" data-mono="B" data-href="https://open.spotify.com/artist/5cDK2NGG0OhfT7Z2FpMgxX" role="link" tabindex="0" aria-label="Baranga on Spotify — open in new tab">
+        <span class="idx">01</span>
+        <a class="name" href="https://open.spotify.com/artist/5cDK2NGG0OhfT7Z2FpMgxX" target="_blank" rel="noopener noreferrer">Baranga</a>
+        <span class="meta">
+          <span class="genre">Afro-Pop / Rap</span><br>Kampala, UG
+          <span class="meta-links">
+            <a class="spot-link" href="https://open.spotify.com/artist/5cDK2NGG0OhfT7Z2FpMgxX" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>
+              Spotify
+            </a>
+            <a class="spot-link am-link" href="https://music.apple.com/us/artist/baranga/1764683984" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              Apple
+            </a>
+          </span>
+        </span>
+        <div class="thumb"><span class="mono">B</span><img src="images/artist-baranga.jpg" alt="Baranga press photo" loading="lazy"><span class="spot-badge"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></span></div>
+      </div>
+      <div class="artist-row" data-img="images/artist-mr-fallback.jpg" data-mono="MF" data-href="https://open.spotify.com/artist/3T80e6ycqFcK1a7M8fE5VP" role="link" tabindex="0" aria-label="Mr Fallback on Spotify — open in new tab">
+        <span class="idx">02</span>
+        <a class="name" href="https://open.spotify.com/artist/3T80e6ycqFcK1a7M8fE5VP" target="_blank" rel="noopener noreferrer">Mr Fallback</a>
+        <span class="meta">
+          <span class="genre">Afro-Pop / Afrobeats</span><br>Kampala, UG
+          <span class="meta-links">
+            <a class="spot-link" href="https://open.spotify.com/artist/3T80e6ycqFcK1a7M8fE5VP" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>
+              Spotify
+            </a>
+            <a class="spot-link am-link" href="https://music.apple.com/us/artist/mr-fallback/1795137555" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              Apple
+            </a>
+          </span>
+        </span>
+        <div class="thumb"><span class="mono">MF</span><img src="images/artist-mr-fallback.jpg" alt="Mr Fallback press photo" loading="lazy"><span class="spot-badge"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></span></div>
+      </div>
+      <div class="artist-row prospect" data-img="images/artist-king-avo.jpg" data-mono="KA" data-href="https://open.spotify.com/artist/1llWoTGNewTr5913U5GGUm" role="link" tabindex="0" aria-label="King Avo on Spotify — joining 7H soon">
+        <span class="idx">03</span>
+        <a class="name" href="https://open.spotify.com/artist/1llWoTGNewTr5913U5GGUm" target="_blank" rel="noopener noreferrer">King Avo</a>
+        <span class="meta">
+          <span class="genre">Afrobeat · Dancehall · Hip-Hop</span><br>
+          <span class="soon-tag">✦ Joining 7H soon</span><br>
+          <span class="meta-links">
+            <a class="spot-link" href="https://open.spotify.com/artist/1llWoTGNewTr5913U5GGUm" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>
+              Spotify
+            </a>
+            <a class="spot-link am-link" href="https://music.apple.com/us/artist/king-avo/1738097686" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              Apple
+            </a>
+          </span>
+        </span>
+        <div class="thumb">
+          <span class="mono">KA</span>
+          <img src="images/artist-king-avo.jpg" alt="King Avo press photo" loading="lazy">
+          <span class="soon-ribbon">Soon</span>
+          <span class="spot-badge"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="roster-preview" id="rosterPreview">
+  <span class="pv-mono" id="pvMono">B</span>
+  <img src="images/artist-baranga.jpg" alt="" id="pvImg">
+</div>
+
+<!-- FUTURE / NEXT UP -->
+<section class="section future" id="future">
+  <div class="wrap future-grid">
+    <div class="future-media reveal">
+      <span class="future-ribbon">✦ Signing Soon</span>
+      <img src="images/artist-king-avo.jpg" alt="King Avo press photo">
+    </div>
+    <div class="future-copy reveal">
+      <span class="eyebrow">Next Up · The Future of 7H</span>
+      <h2 class="future-name">King Avo</h2>
+      <div class="future-genre">Afrobeat · Dancehall · Hip-Hop — Kampala, Uganda</div>
+      <p class="future-bio">A trailblazing new voice from Eastern Uganda, King Avo blends Afrobeat, dancehall and hip-hop with soulful hooks and sharp storytelling — writing about love, self-empowerment and the streets that raised him. A magnetic live performer with a fiercely loyal following, he’s already in the 7H family’s orbit, appearing alongside Baranga and Mr Fallback. Keep your eyes open: his official 7H signing drops soon.</p>
+      <div class="future-tracks">
+        <span>Pepe</span><span>Chills</span><span>Wake &amp; Bake</span><span>Gumide</span><span>Birthday</span>
+      </div>
+      <div class="future-actions">
+        <a class="btn btn-spotify" href="https://open.spotify.com/artist/1llWoTGNewTr5913U5GGUm" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>
+          Listen on Spotify
+        </a>
+        <a class="btn btn-apple" href="https://music.apple.com/us/artist/king-avo/1738097686" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          Apple Music
+        </a>
+        <a class="btn btn-tiktok" href="https://www.tiktok.com/@_king_avo" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+          TikTok
+        </a>
+        <a class="btn btn-youtube" href="https://www.youtube.com/@king_avo" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.07 0 12 0 12s0 3.93.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+          YouTube
+        </a>
+      </div>
+      <p class="future-note">Official 7H signing — announcement coming soon</p>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC / RELEASES -->
+<section class="section" id="music">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Latest Releases</span>
+        <h2 class="section-title">Fresh<br><span class="out">Out</span></h2>
+      </div>
+      <a href="https://open.spotify.com/artist/5cDK2NGG0OhfT7Z2FpMgxX" target="_blank" rel="noopener noreferrer" class="head-link">All Releases →</a>
+    </div>
+
+    <div class="release-grid">
+      <article class="release reveal" data-spotify="https://open.spotify.com/album/1A3yUmi9B5GRwY0PjeQTMp" role="link" tabindex="0" aria-label="Baranga — Chapters I Never Wrote: open on Spotify">
+        <img class="cover-bg" src="images/cover-chapters.jpg" alt="“Chapters I Never Wrote” album cover by Baranga" loading="lazy">
+        <div class="corner-btns">
+          <a class="corner-btn spot" href="https://open.spotify.com/album/1A3yUmi9B5GRwY0PjeQTMp" target="_blank" rel="noopener noreferrer" aria-label="Play Chapters I Never Wrote on Spotify"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></a>
+          <a class="corner-btn am" href="https://music.apple.com/us/album/chapters-i-never-wrote/6768973076" target="_blank" rel="noopener noreferrer" aria-label="Open Chapters I Never Wrote on Apple Music"><svg viewBox="0 0 24 24"><path d="M23.99 6.12c-.05-.78-.13-1.66-.41-2.4-.32-.84-.83-1.5-1.56-1.97C20.93 1 19.39.66 17.2.62c-.08 0-.16-.01-.23-.01H7.03c-.08 0-.15 0-.23.01-2.19.04-3.73.38-4.82 1.13C1.25 2.22.74 2.88.42 3.72.14 4.46.06 5.34.01 6.12c-.02.31-.01.62-.01.93v9.9c0 .31-.01.62.01.93.05.78.13 1.66.41 2.4.32.84.83 1.5 1.56 1.97 1.09.75 2.63 1.09 4.82 1.13.08 0 .15.01.23.01h9.94c.07 0 .15 0 .23-.01 2.19-.04 3.73-.38 4.82-1.13.73-.47 1.24-1.13 1.56-1.97.28-.74.36-1.62.41-2.4.02-.31.01-.62.01-.93v-9.9c0-.31.01-.62-.01-.93zM17.64 6.81c.14 1.37.86 2.34 2.14 2.91-.49 1.29-1.54 2.12-2.83 2.31-.31.05-.61.07-.91.06-1.27-.06-2.29-.68-2.79-1.83-.37-.86-.44-1.76-.21-2.68.42-1.64 1.9-2.72 3.6-2.59.05.01.1 0 .15 0 .34.01.6.18.85.41zm-3.36-3.56c1.07.13 1.99.6 2.67 1.46.47.59.77 1.26.94 1.97-.14.03-.28.06-.42.08-1.55.21-2.95-.53-3.63-1.93-.24-.48-.35-1-.36-1.53.28-.03.54-.06.8-.05z"/></svg></a>
+        </div>
+        <div class="release-info">
+          <span class="r-type">Album · Latest Release</span>
+          <h3>Chapters I Never Wrote</h3>
+          <p>Baranga</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/album/1A3yUmi9B5GRwY0PjeQTMp" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/chapters-i-never-wrote/6768973076" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="release reveal" data-spotify="https://open.spotify.com/album/1naYEYjsM85p1bKdygXurU" role="link" tabindex="0" aria-label="Baranga — Badman: open on Spotify">
+        <img class="cover-bg" src="images/cover-badman.jpg" alt="“Badman” single cover by Baranga" loading="lazy">
+        <div class="corner-btns">
+          <a class="corner-btn spot" href="https://open.spotify.com/album/1naYEYjsM85p1bKdygXurU" target="_blank" rel="noopener noreferrer" aria-label="Play Badman on Spotify"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></a>
+          <a class="corner-btn am" href="https://music.apple.com/us/album/badman-feat-stando-andrinah-single/1812327603" target="_blank" rel="noopener noreferrer" aria-label="Open Badman on Apple Music"><svg viewBox="0 0 24 24"><path d="M23.99 6.12c-.05-.78-.13-1.66-.41-2.4-.32-.84-.83-1.5-1.56-1.97C20.93 1 19.39.66 17.2.62c-.08 0-.16-.01-.23-.01H7.03c-.08 0-.15 0-.23.01-2.19.04-3.73.38-4.82 1.13C1.25 2.22.74 2.88.42 3.72.14 4.46.06 5.34.01 6.12c-.02.31-.01.62-.01.93v9.9c0 .31-.01.62.01.93.05.78.13 1.66.41 2.4.32.84.83 1.5 1.56 1.97 1.09.75 2.63 1.09 4.82 1.13.08 0 .15.01.23.01h9.94c.07 0 .15 0 .23-.01 2.19-.04 3.73-.38 4.82-1.13.73-.47 1.24-1.13 1.56-1.97.28-.74.36-1.62.41-2.4.02-.31.01-.62.01-.93v-9.9c0-.31.01-.62-.01-.93zM17.64 6.81c.14 1.37.86 2.34 2.14 2.91-.49 1.29-1.54 2.12-2.83 2.31-.31.05-.61.07-.91.06-1.27-.06-2.29-.68-2.79-1.83-.37-.86-.44-1.76-.21-2.68.42-1.64 1.9-2.72 3.6-2.59.05.01.1 0 .15 0 .34.01.6.18.85.41zm-3.36-3.56c1.07.13 1.99.6 2.67 1.46.47.59.77 1.26.94 1.97-.14.03-.28.06-.42.08-1.55.21-2.95-.53-3.63-1.93-.24-.48-.35-1-.36-1.53.28-.03.54-.06.8-.05z"/></svg></a>
+        </div>
+        <div class="release-info">
+          <span class="r-type">Single · 290K+ streams</span>
+          <h3>Badman</h3>
+          <p>Baranga</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/album/1naYEYjsM85p1bKdygXurU" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/badman-feat-stando-andrinah-single/1812327603" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="release reveal" data-spotify="https://open.spotify.com/album/4ynVnzXIhbYeGQc8Z6cMt7" role="link" tabindex="0" aria-label="Mr Fallback — Kiwatto: open on Spotify">
+        <img class="cover-bg" src="images/cover-kiwatto.jpg" alt="“Kiwatto” single cover by Mr Fallback" loading="lazy">
+        <div class="corner-btns">
+          <a class="corner-btn spot" href="https://open.spotify.com/album/4ynVnzXIhbYeGQc8Z6cMt7" target="_blank" rel="noopener noreferrer" aria-label="Play Kiwatto on Spotify"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></a>
+          <a class="corner-btn am" href="https://music.apple.com/us/album/kiwatto-single/1896243349" target="_blank" rel="noopener noreferrer" aria-label="Open Kiwatto on Apple Music"><svg viewBox="0 0 24 24"><path d="M23.99 6.12c-.05-.78-.13-1.66-.41-2.4-.32-.84-.83-1.5-1.56-1.97C20.93 1 19.39.66 17.2.62c-.08 0-.16-.01-.23-.01H7.03c-.08 0-.15 0-.23.01-2.19.04-3.73.38-4.82 1.13C1.25 2.22.74 2.88.42 3.72.14 4.46.06 5.34.01 6.12c-.02.31-.01.62-.01.93v9.9c0 .31-.01.62.01.93.05.78.13 1.66.41 2.4.32.84.83 1.5 1.56 1.97 1.09.75 2.63 1.09 4.82 1.13.08 0 .15.01.23.01h9.94c.07 0 .15 0 .23-.01 2.19-.04 3.73-.38 4.82-1.13.73-.47 1.24-1.13 1.56-1.97.28-.74.36-1.62.41-2.4.02-.31.01-.62.01-.93v-9.9c0-.31.01-.62-.01-.93zM17.64 6.81c.14 1.37.86 2.34 2.14 2.91-.49 1.29-1.54 2.12-2.83 2.31-.31.05-.61.07-.91.06-1.27-.06-2.29-.68-2.79-1.83-.37-.86-.44-1.76-.21-2.68.42-1.64 1.9-2.72 3.6-2.59.05.01.1 0 .15 0 .34.01.6.18.85.41zm-3.36-3.56c1.07.13 1.99.6 2.67 1.46.47.59.77 1.26.94 1.97-.14.03-.28.06-.42.08-1.55.21-2.95-.53-3.63-1.93-.24-.48-.35-1-.36-1.53.28-.03.54-.06.8-.05z"/></svg></a>
+        </div>
+        <div class="release-info">
+          <span class="r-type">Single · Latest</span>
+          <h3>Kiwatto</h3>
+          <p>Mr Fallback</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/album/4ynVnzXIhbYeGQc8Z6cMt7" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/kiwatto-single/1896243349" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="release reveal" data-spotify="https://open.spotify.com/album/1Spqnxt8kzm9jNUTPsPdC3" role="link" tabindex="0" aria-label="Mr Fallback — Ndi Solidi Mu: open on Spotify">
+        <img class="cover-bg" src="images/cover-ndi-solidi.jpg" alt="“Ndi Solidi Mu” single cover by Mr Fallback" loading="lazy">
+        <div class="corner-btns">
+          <a class="corner-btn spot" href="https://open.spotify.com/album/1Spqnxt8kzm9jNUTPsPdC3" target="_blank" rel="noopener noreferrer" aria-label="Play Ndi Solidi Mu on Spotify"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></a>
+          <a class="corner-btn am" href="https://music.apple.com/us/album/ndi-solidi-mu-single/1838661663" target="_blank" rel="noopener noreferrer" aria-label="Open Ndi Solidi Mu on Apple Music"><svg viewBox="0 0 24 24"><path d="M23.99 6.12c-.05-.78-.13-1.66-.41-2.4-.32-.84-.83-1.5-1.56-1.97C20.93 1 19.39.66 17.2.62c-.08 0-.16-.01-.23-.01H7.03c-.08 0-.15 0-.23.01-2.19.04-3.73.38-4.82 1.13C1.25 2.22.74 2.88.42 3.72.14 4.46.06 5.34.01 6.12c-.02.31-.01.62-.01.93v9.9c0 .31-.01.62.01.93.05.78.13 1.66.41 2.4.32.84.83 1.5 1.56 1.97 1.09.75 2.63 1.09 4.82 1.13.08 0 .15.01.23.01h9.94c.07 0 .15 0 .23-.01 2.19-.04 3.73-.38 4.82-1.13.73-.47 1.24-1.13 1.56-1.97.28-.74.36-1.62.41-2.4.02-.31.01-.62.01-.93v-9.9c0-.31.01-.62-.01-.93zM17.64 6.81c.14 1.37.86 2.34 2.14 2.91-.49 1.29-1.54 2.12-2.83 2.31-.31.05-.61.07-.91.06-1.27-.06-2.29-.68-2.79-1.83-.37-.86-.44-1.76-.21-2.68.42-1.64 1.9-2.72 3.6-2.59.05.01.1 0 .15 0 .34.01.6.18.85.41zm-3.36-3.56c1.07.13 1.99.6 2.67 1.46.47.59.77 1.26.94 1.97-.14.03-.28.06-.42.08-1.55.21-2.95-.53-3.63-1.93-.24-.48-.35-1-.36-1.53.28-.03.54-.06.8-.05z"/></svg></a>
+        </div>
+        <div class="release-info">
+          <span class="r-type">Single</span>
+          <h3>Ndi Solidi Mu</h3>
+          <p>Mr Fallback</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/album/1Spqnxt8kzm9jNUTPsPdC3" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/ndi-solidi-mu-single/1838661663" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="release reveal" data-spotify="https://open.spotify.com/album/0REbwvJbDhY1mNlm8Db0oP" role="link" tabindex="0" aria-label="Baranga — Party Riddim: open on Spotify">
+        <img class="cover-bg" src="images/cover-party-riddim.jpg" alt="“Party Riddim” single cover by Baranga" loading="lazy">
+        <div class="corner-btns">
+          <a class="corner-btn spot" href="https://open.spotify.com/album/0REbwvJbDhY1mNlm8Db0oP" target="_blank" rel="noopener noreferrer" aria-label="Play Party Riddim on Spotify"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></a>
+          <a class="corner-btn am" href="https://music.apple.com/us/album/party-riddim-single/6792434306" target="_blank" rel="noopener noreferrer" aria-label="Open Party Riddim on Apple Music"><svg viewBox="0 0 24 24"><path d="M23.99 6.12c-.05-.78-.13-1.66-.41-2.4-.32-.84-.83-1.5-1.56-1.97C20.93 1 19.39.66 17.2.62c-.08 0-.16-.01-.23-.01H7.03c-.08 0-.15 0-.23.01-2.19.04-3.73.38-4.82 1.13C1.25 2.22.74 2.88.42 3.72.14 4.46.06 5.34.01 6.12c-.02.31-.01.62-.01.93v9.9c0 .31-.01.62.01.93.05.78.13 1.66.41 2.4.32.84.83 1.5 1.56 1.97 1.09.75 2.63 1.09 4.82 1.13.08 0 .15.01.23.01h9.94c.07 0 .15 0 .23-.01 2.19-.04 3.73-.38 4.82-1.13.73-.47 1.24-1.13 1.56-1.97.28-.74.36-1.62.41-2.4.02-.31.01-.62.01-.93v-9.9c0-.31.01-.62-.01-.93zM17.64 6.81c.14 1.37.86 2.34 2.14 2.91-.49 1.29-1.54 2.12-2.83 2.31-.31.05-.61.07-.91.06-1.27-.06-2.29-.68-2.79-1.83-.37-.86-.44-1.76-.21-2.68.42-1.64 1.9-2.72 3.6-2.59.05.01.1 0 .15 0 .34.01.6.18.85.41zm-3.36-3.56c1.07.13 1.99.6 2.67 1.46.47.59.77 1.26.94 1.97-.14.03-.28.06-.42.08-1.55.21-2.95-.53-3.63-1.93-.24-.48-.35-1-.36-1.53.28-.03.54-.06.8-.05z"/></svg></a>
+        </div>
+        <div class="release-info">
+          <span class="r-type">Single</span>
+          <h3>Party Riddim</h3>
+          <p>Baranga</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/album/0REbwvJbDhY1mNlm8Db0oP" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/party-riddim-single/6792434306" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="release reveal" data-spotify="https://open.spotify.com/album/18QFZNsmesjU5aRbo8vDgq" role="link" tabindex="0" aria-label="Mr Fallback — Abeyoo: open on Spotify">
+        <img class="cover-bg" src="images/cover-abeyoo.jpg" alt="“Abeyoo” single cover by Mr Fallback" loading="lazy">
+        <div class="corner-btns">
+          <a class="corner-btn spot" href="https://open.spotify.com/album/18QFZNsmesjU5aRbo8vDgq" target="_blank" rel="noopener noreferrer" aria-label="Play Abeyoo on Spotify"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></a>
+          <a class="corner-btn am" href="https://music.apple.com/us/album/abeyoo-feat-sopreno-c-single/1885183494" target="_blank" rel="noopener noreferrer" aria-label="Open Abeyoo on Apple Music"><svg viewBox="0 0 24 24"><path d="M23.99 6.12c-.05-.78-.13-1.66-.41-2.4-.32-.84-.83-1.5-1.56-1.97C20.93 1 19.39.66 17.2.62c-.08 0-.16-.01-.23-.01H7.03c-.08 0-.15 0-.23.01-2.19.04-3.73.38-4.82 1.13C1.25 2.22.74 2.88.42 3.72.14 4.46.06 5.34.01 6.12c-.02.31-.01.62-.01.93v9.9c0 .31-.01.62.01.93.05.78.13 1.66.41 2.4.32.84.83 1.5 1.56 1.97 1.09.75 2.63 1.09 4.82 1.13.08 0 .15.01.23.01h9.94c.07 0 .15 0 .23-.01 2.19-.04 3.73-.38 4.82-1.13.73-.47 1.24-1.13 1.56-1.97.28-.74.36-1.62.41-2.4.02-.31.01-.62.01-.93v-9.9c0-.31.01-.62-.01-.93zM17.64 6.81c.14 1.37.86 2.34 2.14 2.91-.49 1.29-1.54 2.12-2.83 2.31-.31.05-.61.07-.91.06-1.27-.06-2.29-.68-2.79-1.83-.37-.86-.44-1.76-.21-2.68.42-1.64 1.9-2.72 3.6-2.59.05.01.1 0 .15 0 .34.01.6.18.85.41zm-3.36-3.56c1.07.13 1.99.6 2.67 1.46.47.59.77 1.26.94 1.97-.14.03-.28.06-.42.08-1.55.21-2.95-.53-3.63-1.93-.24-.48-.35-1-.36-1.53.28-.03.54-.06.8-.05z"/></svg></a>
+        </div>
+        <div class="release-info">
+          <span class="r-type">Single · 2026</span>
+          <h3>Abeyoo</h3>
+          <p>Mr Fallback</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/album/18QFZNsmesjU5aRbo8vDgq" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/abeyoo-feat-sopreno-c-single/1885183494" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- LISTEN / SPOTIFY EMBEDS -->
+<section class="section listen" id="listen">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Press Play</span>
+        <h2 class="section-title">Now<br><span class="out">Playing</span></h2>
+      </div>
+      <a href="https://open.spotify.com/artist/5cDK2NGG0OhfT7Z2FpMgxX" target="_blank" rel="noopener noreferrer" class="head-link">Open in Spotify →</a>
+    </div>
+    <div class="listen-grid">
+      <div class="listen-card reveal">
+        <div class="lc-head">
+          <span class="lc-pill">Baranga · Chapters I Never Wrote</span>
+          <span class="lc-btns">
+            <a class="plat-link spot" href="https://open.spotify.com/artist/5cDK2NGG0OhfT7Z2FpMgxX" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/artist/baranga/1764683984" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </span>
+        </div>
+        <iframe title="Baranga — Chapters I Never Wrote (Spotify player)" loading="lazy"
+          src="https://open.spotify.com/embed/album/1A3yUmi9B5GRwY0PjeQTMp?utm_source=7h&theme=0&view=list"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      </div>
+      <div class="listen-card reveal">
+        <div class="lc-head">
+          <span class="lc-pill">Mr Fallback · Artist</span>
+          <span class="lc-btns">
+            <a class="plat-link spot" href="https://open.spotify.com/artist/3T80e6ycqFcK1a7M8fE5VP" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/artist/mr-fallback/1795137555" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </span>
+        </div>
+        <iframe title="Mr Fallback — Spotify player" loading="lazy"
+          src="https://open.spotify.com/embed/artist/3T80e6ycqFcK1a7M8fE5VP?utm_source=7h&theme=0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVISIONS -->
+<section class="section divisions" id="divisions">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">What We Do</span>
+        <h2 class="section-title">Three<br><span class="out">Houses</span></h2>
+      </div>
+    </div>
+    <div class="div-grid">
+      <a class="div-card reveal" href="#music" aria-label="7H Records — explore our music">
+        <img src="images/div-label.jpg" alt="7H Label — recording artist in vocal booth">
+        <div class="div-body">
+          <span class="num">01 / Label</span>
+          <h3>7H Records</h3>
+          <p>Full-service record label: A&amp;R, recording, marketing, distribution and global release strategy for records built to last.</p>
+          <span class="go">Explore <svg viewBox="0 0 40 12"><line x1="0" y1="6" x2="38" y2="6" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        </div>
+      </a>
+      <a class="div-card reveal" href="#contact" aria-label="7H Management — get in touch">
+        <img src="images/div-management.jpg" alt="7H Management — artist and manager backstage">
+        <div class="div-body">
+          <span class="num">02 / Management</span>
+          <h3>7H Management</h3>
+          <p>Career architect for artists and producers — touring, brand partnerships, endorsements and long-term wealth building.</p>
+          <span class="go">Enquire <svg viewBox="0 0 40 12"><line x1="0" y1="6" x2="38" y2="6" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        </div>
+      </a>
+      <a class="div-card reveal" href="#contact" aria-label="7H Publishing — get in touch">
+        <img src="images/div-publishing.jpg" alt="7H Publishing — songwriter with guitar">
+        <div class="div-body">
+          <span class="num">03 / Publishing</span>
+          <h3>7H Publishing</h3>
+          <p>Songwriter and producer representation, sync licensing for film, TV and games, and royalty administration worldwide.</p>
+          <span class="go">Enquire <svg viewBox="0 0 40 12"><line x1="0" y1="6" x2="38" y2="6" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><div class="num"><span class="count" data-target="18">0</span><span class="gold">+</span></div><div class="lbl">Releases</div></div>
+    <div class="stat reveal"><div class="num"><span class="count" data-target="400" data-suffix="K+">0</span></div><div class="lbl">Streams &amp; Counting</div></div>
+    <div class="stat reveal"><div class="num"><span class="count" data-target="2">0</span></div><div class="lbl">Signed Artists</div></div>
+    <div class="stat reveal"><div class="num"><span class="count" data-target="1">0</span><span class="gold"> ✦</span></div><div class="lbl">New Signing Soon</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div class="about-img reveal">
+      <img src="images/about.jpg" alt="Inside the 7H Music Group studio">
+      <div class="badge"><b>7H</b><span>Kampala · Uganda</span></div>
+    </div>
+    <div class="about-copy reveal">
+      <span class="eyebrow">Our Story</span>
+      <h2>Built by artists,<br>for artists.</h2>
+      <p>7H Music Group is a Kampala-born, artist-first music company built on a simple belief: the continent’s most extraordinary talent deserves a home held to the same standard as the music — uncompromising and world-class.</p>
+      <p>The roster is led by Afro-pop and rap standout <b>Baranga</b> — whose debut album <i>Chapters I Never Wrote</i> and breakout hit <i>Badman</i> have put him on Uganda’s biggest playlists — and Afro-pop rising star <b>Mr Fallback</b>, whose melodic, dance-ready records like <i>Ndi Solidi Mu</i> and <i>Kiwatto</i> are capturing the spirit of East Africa’s new wave. Up next: <b>King Avo</b>, officially set to join the family.</p>
+      <p>Behind every record is <a class="plink" href="mailto:mikeonerecords@gmail.com"><b>Mike 1ne</b></a> — the label’s in-house music producer and sound engineer, and an admin of the house. He shapes the 7H sound from the studio, mixing and mastering the releases, running sessions for the roster, and helping steer the business day to day. If it comes out of 7H sounding like that, Mike 1ne is the reason.</p>
+      <a class="studio-cta" href="mailto:mikeonerecords@gmail.com">Book studio time &amp; production with Mike 1ne</a>
+      <p>Across records, management and publishing, we don’t chase trends. We sign voices that can’t be ignored, and we build careers that outlast the cycle — from the first studio session to the biggest stage.</p>
+      <div class="about-sign">
+        <div class="who"><b>7H Music Group</b><span>Label · Management · Publishing</span></div>
+        <div class="line"></div>
+        <div class="who" style="text-align:right"><b>Mike 1ne</b><span>In-house Producer &amp; Engineer · Label Admin</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="section news" id="news">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Newsroom</span>
+        <h2 class="section-title">The<br><span class="out">Latest</span></h2>
+      </div>
+      <a href="https://open.spotify.com/artist/5cDK2NGG0OhfT7Z2FpMgxX" target="_blank" rel="noopener noreferrer" class="head-link">All Stories →</a>
+    </div>
+    <div class="news-grid">
+      <article class="news-card reveal" data-spotify="https://open.spotify.com/album/1A3yUmi9B5GRwY0PjeQTMp" role="link" tabindex="0" aria-label="Baranga — Chapters I Never Wrote: open on Spotify">
+        <div class="ph"><img src="images/about.jpg" alt="7H studio"></div>
+        <div class="news-body">
+          <span class="date">2026</span>
+          <h3>Baranga releases debut album “Chapters I Never Wrote”</h3>
+          <p>The full-length project is out now on all platforms, with Mr Fallback among the features — the most complete statement yet from the 7H camp.</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/album/1A3yUmi9B5GRwY0PjeQTMp" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/chapters-i-never-wrote/6768973076" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
+      <article class="news-card reveal" data-spotify="https://open.spotify.com/album/4ynVnzXIhbYeGQc8Z6cMt7" role="link" tabindex="0" aria-label="Mr Fallback — Kiwatto: open on Spotify">
+        <div class="ph" style="background:linear-gradient(150deg,#0f2a1f,#07120d)">
+          <span class="mono">MF</span>
+          <img src="images/artist-mr-fallback.jpg" alt="Mr Fallback" style="object-position:center 18%">
+        </div>
+        <div class="news-body">
+          <span class="date">2026</span>
+          <h3>Mr Fallback returns with new single “Kiwatto”</h3>
+          <p>Fresh off <i>Ndi Solidi Mu</i> and <i>Abeyoo</i>, Mr Fallback keeps the run going with another infectious Afro-pop cut made for the dancefloor.</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/album/4ynVnzXIhbYeGQc8Z6cMt7" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/kiwatto-single/1896243349" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
+      <article class="news-card reveal" data-spotify="https://open.spotify.com/album/1naYEYjsM85p1bKdygXurU" role="link" tabindex="0" aria-label="Baranga — Badman: open on Spotify">
+        <div class="ph" style="background:linear-gradient(150deg,#2a2010,#100c07)">
+          <span class="mono">B</span>
+          <img src="images/artist-baranga.jpg" alt="Baranga" style="object-position:center 22%">
+        </div>
+        <div class="news-body">
+          <span class="date">2026</span>
+          <h3>“Badman” passes 290K streams as Baranga hits the Ugandan Top 100</h3>
+          <p>The breakout single keeps climbing, landing Baranga on Uganda’s biggest Spotify playlists and marking him as one to watch.</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/album/1naYEYjsM85p1bKdygXurU" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/badman-feat-stando-andrinah-single/1812327603" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <span class="eyebrow reveal" style="justify-content:center">Join the House</span>
+    <h2 class="reveal">Make<br><span class="out">History</span></h2>
+    <p class="reveal">Whether you’re an artist with a demo, a producer with beats, or a brand looking to partner — the door is open. Tell us what you’re building.</p>
+    <a href="#contactForm" class="btn btn-solid reveal">Submit Your Music <span class="arr">→</span></a>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Contact</span>
+        <h3>Let’s build something timeless.</h3>
+        <div class="row"><span>General</span><a href="mailto:7hmusicgroup@gmail.com">7hmusicgroup@gmail.com</a></div>
+        <div class="row"><span>Demos &amp; A&amp;R</span><a href="mailto:declanmike12@gmail.com">declanmike12@gmail.com</a></div>
+        <div class="row"><span>Producer / Studio</span><a href="mailto:mikeonerecords@gmail.com">mikeonerecords@gmail.com</a></div>
+        <div class="row"><span>Press &amp; Booking</span><a href="mailto:7hmusicgroup@gmail.com">7hmusicgroup@gmail.com</a></div>
+        <div class="row"><span>HQ</span><span>Kampala, Uganda</span></div>
+      </div>
+      <form class="contact-form reveal" id="contactForm">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@email.com" required>
+        </div>
+        <div class="field">
+          <label for="type">I’m reaching out about</label>
+          <select id="type" name="topic">
+            <option>Artist / Demo submission</option>
+            <option>Producer / Songwriter</option>
+            <option>Brand partnership</option>
+            <option>Press &amp; media</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" placeholder="Tell us about the record, link any socials/Streaming, and drop your story…"></textarea>
+        </div>
+        <div class="field">
+          <label for="demo">Attach a demo <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+          <input id="demo" name="demo" type="file" accept="audio/*,.mp3,.m4a,.wav,.aac,.ogg,.flac,.zip">
+          <div class="file-hint">MP3 / WAV / M4A up to ~10 MB. For bigger files, use a Google Drive / SoundCloud link in your message.</div>
+        </div>
+        <button type="submit" class="btn btn-solid" id="formBtn">Submit Demo <span class="arr">→</span></button>
+        <p class="form-note" id="formNote">We listen to every submission. Response within 14 days.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#home" class="logo">
+          <span class="mark">7H</span>
+          <span class="sub">Music&nbsp;Group</span>
+        </a>
+        <p>A full-service record label, management company and publisher. The home of hit music — Kampala to the world.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#about">About</a>
+        <a href="#divisions">Divisions</a>
+        <a href="#roster">Roster</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact / Demos</a>
+        <a href="mailto:mikeonerecords@gmail.com" style="color:var(--gold)">Mike 1ne Studio</a>
+      </div>
+      <div class="foot-col">
+        <h4>Baranga</h4>
+        <a class="spot" href="https://open.spotify.com/artist/5cDK2NGG0OhfT7Z2FpMgxX" target="_blank" rel="noopener noreferrer">Spotify</a>
+        <a href="https://music.apple.com/ug/artist/baranga/1764683984" target="_blank" rel="noopener noreferrer">Apple Music</a>
+        <a href="https://www.instagram.com/_baranga._/" target="_blank" rel="noopener noreferrer">Instagram · @_baranga._</a>
+        <a href="https://www.tiktok.com/@_baranga" target="_blank" rel="noopener noreferrer">TikTok · @_baranga</a>
+        <a href="https://www.youtube.com/@baranga_music" target="_blank" rel="noopener noreferrer">YouTube · @baranga_music</a>
+      </div>
+      <div class="foot-col">
+        <h4>Mr Fallback</h4>
+        <a class="spot" href="https://open.spotify.com/artist/3T80e6ycqFcK1a7M8fE5VP" target="_blank" rel="noopener noreferrer">Spotify</a>
+        <a href="https://music.apple.com/us/artist/mr-fallback/1795137555" target="_blank" rel="noopener noreferrer">Apple Music</a>
+        <a href="https://www.instagram.com/mr_fallback01" target="_blank" rel="noopener noreferrer">Instagram · @mr_fallback01</a>
+        <a href="https://www.tiktok.com/@mrfallback6" target="_blank" rel="noopener noreferrer">TikTok · @mrfallback6</a>
+        <a href="https://www.youtube.com/@mrfallback01" target="_blank" rel="noopener noreferrer">YouTube · @mrfallback01</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 7H Music Group. All rights reserved.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/_baranga._/" target="_blank" rel="noopener noreferrer" aria-label="Instagram — Baranga @_baranga._" title="Baranga — Instagram @_baranga._">IG</a>
+        <a href="https://www.tiktok.com/@_baranga" target="_blank" rel="noopener noreferrer" aria-label="TikTok — Baranga @_baranga" title="Baranga — TikTok @_baranga">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@baranga_music" target="_blank" rel="noopener noreferrer" aria-label="YouTube — Baranga @baranga_music" title="Baranga — YouTube @baranga_music">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.07 0 12 0 12s0 3.93.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+        </a>
+        <a class="off" aria-label="X / Twitter (send us the handle)" title="X — coming soon">X</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header state
+  const header = document.getElementById('header');
+  addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', scrollY > 40);
+  }, {passive:true});
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open');
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+
+  // Ticker: duplicate content for seamless loop
+  const track = document.getElementById('tickerTrack');
+  track.innerHTML += track.innerHTML;
+
+  // Photo slots: fade real photos in over the monogram placeholder
+  function wirePhoto(img){
+    const show = () => img.classList.add('loaded');
+    if (img.complete && img.naturalWidth > 0) show();
+    else { img.addEventListener('load', show); img.addEventListener('error', () => img.classList.remove('loaded')); }
+  }
+  document.querySelectorAll('.thumb img, .news-card .ph img').forEach(wirePhoto);
+
+  // Roster hover preview (desktop with pointer)
+  const preview = document.getElementById('rosterPreview');
+  const pImg = document.getElementById('pvImg');
+  const pMono = document.getElementById('pvMono');
+  pImg.addEventListener('load', () => pImg.classList.add('loaded'));
+  pImg.addEventListener('error', () => pImg.classList.remove('loaded'));
+  const rows = document.querySelectorAll('.artist-row[data-img]');
+  let mx = innerWidth/2, my = innerHeight/2, px = mx, py = my, on = false;
+
+  if (matchMedia('(hover:hover)').matches) {
+    rows.forEach(row => {
+      row.addEventListener('mouseenter', () => {
+        pMono.textContent = row.dataset.mono || '7H';
+        pImg.classList.remove('loaded');
+        pImg.src = row.dataset.img;
+        preview.classList.add('on');
+        on = true;
+      });
+      row.addEventListener('mouseleave', () => {
+        preview.classList.remove('on');
+        on = false;
+      });
+    });
+    addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, {passive:true});
+    (function loop(){
+      px += (mx - px) * .12;
+      py += (my - py) * .12;
+      const w = 300, h = 380;
+      let x = px + 40, y = py - h/2;
+      if (x + w > innerWidth - 10) x = px - w - 40;
+      y = Math.max(10, Math.min(innerHeight - h - 10, y));
+      preview.style.transform = `translate(${x}px,${y}px) ${on ? 'scale(1)' : 'scale(.85)'}`;
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  // Whole artist row opens the artist's Spotify — works on touch, mouse and keyboard
+  document.querySelectorAll('.artist-row[data-href]').forEach(row => {
+    const go = () => { if (!window.__opened) { window.__opened = true; window.open(row.dataset.href, '_blank', 'noopener'); setTimeout(()=>window.__opened=false, 400); } };
+    row.addEventListener('click', go);
+    row.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+    });
+  });
+
+  // Release & news cards: clicking anywhere on the card opens Spotify;
+  // the explicit Spotify / Apple Music buttons handle their own links.
+  document.querySelectorAll('[data-spotify]').forEach(card => {
+    const go = () => window.open(card.dataset.spotify, '_blank', 'noopener');
+    card.addEventListener('click', e => { if (e.target.closest('a')) return; go(); });
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+    });
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = (i % 3 * .08) + 's';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Animated counters
+  const counters = document.querySelectorAll('.count');
+  const cio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      const t0 = performance.now(), dur = 1800;
+      (function tick(t){
+        const p = Math.min((t - t0)/dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+      cio.unobserve(el);
+    });
+  }, {threshold:.6});
+  counters.forEach(c => cio.observe(c));
+
+  // ── Contact form → FormSubmit (emails submissions; supports demo attachments) ──
+  // No signup needed. Each inbox must be confirmed ONCE: the first submission to an
+  // address triggers a FormSubmit "Activate Form" email — click its link, then it works.
+  // Topic routing: demos/producers → A&R inbox; brand/press/other → general inbox.
+  const FORM_ROUTES = {
+    'Artist / Demo submission': 'declanmike12@gmail.com',
+    'Producer / Songwriter':    'declanmike12@gmail.com',
+    'Brand partnership':        '7hmusicgroup@gmail.com',
+    'Press & media':            '7hmusicgroup@gmail.com',
+    'Other':                    '7hmusicgroup@gmail.com'
+  };
+  const MAX_BYTES = 9 * 1024 * 1024; // FormSubmit email attachment limit (~10 MB)
+  const contactForm = document.getElementById('contactForm');
+  const formNote = document.getElementById('formNote');
+  const formBtn = document.getElementById('formBtn');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const topic = contactForm.topic.value;
+    const endpoint = 'https://formsubmit.co/ajax/' + FORM_ROUTES[topic];
+
+    const fd = new FormData(contactForm);
+    fd.set('_subject', '7H Demo/Contact: ' + topic + ' — ' + (contactForm.name.value || 'New message'));
+    fd.set('_replyto', contactForm.email.value);
+    fd.set('_template', 'table');
+
+    const file = contactForm.demo && contactForm.demo.files[0];
+    if (file && file.size > MAX_BYTES) {
+      formNote.textContent = '⚠️ That file is over 10 MB — please share a Drive/SoundCloud link in your message.';
+      return;
+    }
+
+    formBtn.textContent = 'Sending…';
+    formBtn.style.opacity = '.6';
+    formBtn.style.pointerEvents = 'none';
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: fd,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        formNote.textContent = '✓ Received — we’ll be in touch within 14 days.';
+        contactForm.reset();
+      } else {
+        formNote.textContent = 'Something went wrong — please email 7hmusicgroup@gmail.com';
+      }
+    } catch (err) {
+      formNote.textContent = 'Network error — please email 7hmusicgroup@gmail.com';
+    } finally {
+      formBtn.textContent = 'Submit Demo →';
+      formBtn.style.opacity = '';
+      formBtn.style.pointerEvents = '';
+    }
+  });
+</script>
+</body>
+</html>
