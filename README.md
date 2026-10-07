@@ -46,21 +46,23 @@ Notes:
 
 ## Contacts
 
-- **General / Press & Booking:** 7hmusicgroup@gmail.com
-- **Demos & A&R:** declanmike12@gmail.com
+- **General / Demos / Press & Booking:** 7hmusicgroupug@gmail.com
 - **Producer / Studio (Mike 1ne):** mikeonerecords@gmail.com
 
 ## Contact form + demo uploads → FormSubmit
 
 The contact form (with **demo file upload**) uses [FormSubmit](https://formsubmit.co) — free,
-no signup, attachments arrive by email. Routing in `index.html` (`FORM_ROUTES`):
+no signup, attachments arrive by email. Every topic goes to one inbox, set by `FORM_EMAIL` in
+`index.html` (currently **7hmusicgroupug@gmail.com**).
 
-- **Artist / Demo** and **Producer / Songwriter** → declanmike12@gmail.com (A&R)
-- **Brand partnership / Press / Other** → 7hmusicgroup@gmail.com (general)
+**One-time activation (required):** the first submission to an address triggers a FormSubmit
+email with an **"Activate Form"** button. Click it once in that inbox (check Spam/Promotions) —
+after that every submission, including the attached demo, is delivered. If you ever change
+`FORM_EMAIL` (and the `action` on the `<form>`), the new inbox needs activating the same way.
 
-**One-time activation (required):** the first submission to each address triggers a FormSubmit
-email with an **"Activate Form"** button. Click it in **both** inboxes (declanmike12@ and
-7hmusicgroup@) — after that every submission, including the attached demo, is delivered.
-- Attachments: up to ~10 MB, sent straight to the inbox (MP3/WAV/M4A). Larger files should be
-  shared via a Google Drive / SoundCloud link in the message (the form enforces this client-side).
-- Spam is filtered with the `_honey` honeypot field; the user's email is set as Reply-To.
+- Attachments: the file field is named `attachment` (FormSubmit's convention). Limit is 10 MB per
+  submission; the form blocks files over 9 MB and tells the sender to share a Drive / SoundCloud link.
+- FormSubmit replies HTTP 200 even when it refuses a message (e.g. inbox not activated), so the
+  script reads `success` from the JSON body. On any failure the visitor sees a clickable email fallback.
+- Spam: `_honey` honeypot field; the sender's email is set as Reply-To, subject includes the topic.
+- Without JavaScript the form still posts natively to FormSubmit (their captcha page appears).

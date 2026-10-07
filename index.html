@@ -393,7 +393,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .cta p{color:var(--muted);max-width:520px;margin:34px auto 44px;font-size:15px;line-height:1.7}
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:110px;text-align:left;align-items:start}
   .contact-info h3{font-size:clamp(26px,3vw,40px);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;margin:20px 0 26px}
-  .contact-info .row{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .contact-info .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:13px}
   .contact-info .row span{color:var(--muted);letter-spacing:.2em;text-transform:uppercase;font-size:11px;font-weight:700}
   .contact-info .row a{font-weight:700;letter-spacing:.05em}
   .contact-info .row a:hover{color:var(--gold)}
@@ -409,7 +409,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .field input[type="file"]::file-selector-button:hover{background:var(--gold);color:#0a0a0b}
   .file-hint{font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:.03em;line-height:1.5}
   .contact-form .btn-solid{width:100%;justify-content:center;border:0;cursor:pointer;font-family:inherit}
-  .form-note{font-size:11px;color:var(--muted);text-align:center;margin-top:16px;letter-spacing:.08em}
+  .form-note{font-size:11px;color:var(--muted);text-align:center;margin-top:16px;letter-spacing:.08em;line-height:1.6}
+  .form-note.ok{color:var(--gold)}
+  .form-note.err{color:#e8746f}
+  .form-note a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;font-weight:700}
+  #formBtn:disabled{opacity:.6;cursor:wait}
 
   /* ---------- FOOTER ---------- */
   footer{border-top:1px solid var(--line);padding:80px 0 40px;background:#070708}
@@ -945,13 +949,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       <div class="contact-info reveal">
         <span class="eyebrow">Contact</span>
         <h3>Let’s build something timeless.</h3>
-        <div class="row"><span>General</span><a href="mailto:7hmusicgroup@gmail.com">7hmusicgroup@gmail.com</a></div>
-        <div class="row"><span>Demos &amp; A&amp;R</span><a href="mailto:declanmike12@gmail.com">declanmike12@gmail.com</a></div>
+        <div class="row"><span>General · Demos · Press &amp; Booking</span><a href="mailto:7hmusicgroupug@gmail.com">7hmusicgroupug@gmail.com</a></div>
         <div class="row"><span>Producer / Studio</span><a href="mailto:mikeonerecords@gmail.com">mikeonerecords@gmail.com</a></div>
-        <div class="row"><span>Press &amp; Booking</span><a href="mailto:7hmusicgroup@gmail.com">7hmusicgroup@gmail.com</a></div>
         <div class="row"><span>HQ</span><span>Kampala, Uganda</span></div>
       </div>
-      <form class="contact-form reveal" id="contactForm">
+      <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/7hmusicgroupug@gmail.com" method="POST" enctype="multipart/form-data">
         <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
         <div class="field">
           <label for="name">Full Name</label>
@@ -976,9 +978,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <textarea id="msg" name="message" placeholder="Tell us about the record, link any socials/Streaming, and drop your story…"></textarea>
         </div>
         <div class="field">
-          <label for="demo">Attach a demo <span style="color:var(--muted);font-weight:400">(optional)</span></label>
-          <input id="demo" name="demo" type="file" accept="audio/*,.mp3,.m4a,.wav,.aac,.ogg,.flac,.zip">
-          <div class="file-hint">MP3 / WAV / M4A up to ~10 MB. For bigger files, use a Google Drive / SoundCloud link in your message.</div>
+          <label for="attachment">Attach a demo <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+          <input id="attachment" name="attachment" type="file" accept="audio/*,.mp3,.m4a,.wav,.aac,.ogg,.flac,.zip">
+          <div class="file-hint">MP3 / M4A / WAV up to 9 MB. Bigger file? Paste a Google Drive or SoundCloud link in your message instead.</div>
         </div>
         <button type="submit" class="btn btn-solid" id="formBtn">Submit Demo <span class="arr">→</span></button>
         <p class="form-note" id="formNote">We listen to every submission. Response within 14 days.</p>
@@ -1160,59 +1162,72 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   }, {threshold:.6});
   counters.forEach(c => cio.observe(c));
 
-  // ── Contact form → FormSubmit (emails submissions; supports demo attachments) ──
-  // No signup needed. Each inbox must be confirmed ONCE: the first submission to an
-  // address triggers a FormSubmit "Activate Form" email — click its link, then it works.
-  // Topic routing: demos/producers → A&R inbox; brand/press/other → general inbox.
-  const FORM_ROUTES = {
-    'Artist / Demo submission': 'declanmike12@gmail.com',
-    'Producer / Songwriter':    'declanmike12@gmail.com',
-    'Brand partnership':        '7hmusicgroup@gmail.com',
-    'Press & media':            '7hmusicgroup@gmail.com',
-    'Other':                    '7hmusicgroup@gmail.com'
-  };
-  const MAX_BYTES = 9 * 1024 * 1024; // FormSubmit email attachment limit (~10 MB)
+  // ── Contact form → FormSubmit (emails every submission, incl. demo attachments) ──
+  // Free, no signup. The inbox must be confirmed ONCE: the first submission triggers a
+  // FormSubmit "Activate Form" email — click the link in it and the form is live.
+  const FORM_EMAIL = '7hmusicgroupug@gmail.com';
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + FORM_EMAIL;
+  const MAX_MB = 9;                       // FormSubmit's limit is 10 MB per submission
   const contactForm = document.getElementById('contactForm');
   const formNote = document.getElementById('formNote');
   const formBtn = document.getElementById('formBtn');
+  const formBtnHTML = formBtn.innerHTML;  // keep the original label + arrow markup
+
+  function setNote(state, text, withMailLink) {
+    formNote.className = 'form-note' + (state ? ' ' + state : '');
+    formNote.textContent = text;
+    if (withMailLink) {
+      const a = document.createElement('a');
+      a.href = 'mailto:' + FORM_EMAIL;
+      a.textContent = FORM_EMAIL;
+      formNote.append(' ', a);
+    }
+  }
 
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const topic = contactForm.topic.value;
-    const endpoint = 'https://formsubmit.co/ajax/' + FORM_ROUTES[topic];
+    const fileInput = contactForm.elements['attachment'];
+    const file = fileInput && fileInput.files[0];
 
-    const fd = new FormData(contactForm);
-    fd.set('_subject', '7H Demo/Contact: ' + topic + ' — ' + (contactForm.name.value || 'New message'));
-    fd.set('_replyto', contactForm.email.value);
-    fd.set('_template', 'table');
-
-    const file = contactForm.demo && contactForm.demo.files[0];
-    if (file && file.size > MAX_BYTES) {
-      formNote.textContent = '⚠️ That file is over 10 MB — please share a Drive/SoundCloud link in your message.';
+    if (file && file.size > MAX_MB * 1024 * 1024) {
+      setNote('err', 'That file is over ' + MAX_MB + ' MB — please paste a Google Drive or SoundCloud link in your message instead.');
       return;
     }
 
+    const fd = new FormData(contactForm);
+    if (!file) fd.delete('attachment');                 // never send an empty file part
+    const who = String(fd.get('name') || '').trim();
+    fd.set('_subject', '7H Music Group — ' + fd.get('topic') + (who ? ' — ' + who : ''));
+    fd.set('_replyto', String(fd.get('email') || '').trim());
+    fd.set('_template', 'table');
+    fd.set('_captcha', 'false');
+
+    formBtn.disabled = true;
     formBtn.textContent = 'Sending…';
-    formBtn.style.opacity = '.6';
-    formBtn.style.pointerEvents = 'none';
+    setNote('', file ? 'Uploading your demo — this can take a moment…' : 'Sending…');
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
         body: fd,
         headers: { 'Accept': 'application/json' }
       });
-      if (res.ok) {
-        formNote.textContent = '✓ Received — we’ll be in touch within 14 days.';
+      let data = {};
+      try { data = await res.json(); } catch (_) {}
+      // FormSubmit answers HTTP 200 even when it refuses (e.g. inbox not activated yet),
+      // so success must be read from the JSON body, not just the status code.
+      if (res.ok && (data.success === true || data.success === 'true')) {
         contactForm.reset();
+        setNote('ok', '✓ Received — we’ll be in touch within 14 days.');
       } else {
-        formNote.textContent = 'Something went wrong — please email 7hmusicgroup@gmail.com';
+        console.warn('FormSubmit refused the submission:', res.status, data);
+        setNote('err', 'We couldn’t send that just now — please email us directly at', true);
       }
     } catch (err) {
-      formNote.textContent = 'Network error — please email 7hmusicgroup@gmail.com';
+      console.warn('FormSubmit network error:', err);
+      setNote('err', 'Network error — please check your connection or email us at', true);
     } finally {
-      formBtn.textContent = 'Submit Demo →';
-      formBtn.style.opacity = '';
-      formBtn.style.pointerEvents = '';
+      formBtn.disabled = false;
+      formBtn.innerHTML = formBtnHTML;
     }
   });
 </script>
