@@ -41,7 +41,7 @@ Notes:
 
 - **Roster / releases / links:** all content is in `index.html` — each artist, release and link is clearly marked.
 - **Artist photos:** `images/artist-*.jpg` — replace a file with a real press photo of the same name (portrait orientation works best).
-  `artist-mike-1ne.jpg` is Mike 1ne's official Apple Music artist image, cropped to portrait.
+  `artist-mike-1ne.jpg` is the photo Mike 1ne supplied, cropped to a 4:5 portrait (the Instagram mute icon is cropped out).
 - **Cover art:** `images/cover-*.jpg`.
 - Roster & social handles: Spotify, Apple Music, Instagram, TikTok and YouTube links live inline next to each artist.
 - **Mike 1ne (in-house producer & engineer):** roster row 03, three cards in *Fresh Out* (EP *Love Look What You Made Me Do*,
