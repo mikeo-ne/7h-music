@@ -182,6 +182,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     text-transform:uppercase;
   }
   .artist-row.prospect .name{font-style:italic}
+  /* in-house producer marker (Mike 1ne) */
+  .role-tag{color:var(--gold);font-weight:800;display:inline-block;margin:4px 0}
+  .role-ribbon{position:absolute;top:5px;left:4px;z-index:4;background:var(--gold);color:#0a0a0b;font-size:6.5px;letter-spacing:.08em;font-weight:900;padding:3px 4px;border-radius:3px;text-transform:uppercase;white-space:nowrap}
 
   /* platform pills inside roster meta (Spotify + Apple Music) */
   .meta-links{display:flex;gap:8px;justify-content:flex-end;margin-top:14px;flex-wrap:wrap}
@@ -265,6 +268,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .cover-art .seven{font-size:64px;font-weight:900;opacity:.18;position:absolute;right:18px;bottom:8px;line-height:1}
   .cover-art .tag{font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:800;opacity:.85}
   .release-info{padding:26px;position:relative;z-index:2}
+  /* covers with a light lettering strip on the left (Tungi · Different Patterns): keep the text clear of it */
+  .release.has-strip .release-info{padding-left:calc(23.5% + 18px)}
   .release-info .r-type{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:800}
   .release-info h3{font-size:22px;font-weight:800;text-transform:uppercase;margin:8px 0 4px;letter-spacing:-.01em}
   .release-info p{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,234,.65);font-weight:700}
@@ -309,7 +314,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .plat-link.am:hover{background:#fa2d48;color:#fff;border-color:#fa2d48}
 
   /* ---------- LISTEN / SPOTIFY EMBEDS ---------- */
-  .listen-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .listen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
   .listen-card{
     background:var(--bg-2);border:1px solid var(--line);border-radius:12px;
     padding:22px 22px 24px;transition:border-color .4s var(--ease),transform .45s var(--ease);
@@ -417,7 +422,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 
   /* ---------- FOOTER ---------- */
   footer{border-top:1px solid var(--line);padding:80px 0 40px;background:#070708}
-  .foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:50px;padding-bottom:60px;border-bottom:1px solid var(--line)}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:60px;border-bottom:1px solid var(--line)}
   .foot-brand .logo{margin-bottom:22px}
   .foot-brand p{color:var(--muted);font-size:13.5px;line-height:1.7;max-width:300px}
   .foot-col h4{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:22px}
@@ -435,6 +440,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .reveal.in{opacity:1;transform:none}
 
   /* ---------- RESPONSIVE ---------- */
+  @media(max-width:1279px){
+    .foot-top{grid-template-columns:1.2fr 1fr 1fr;gap:44px 40px}
+  }
+  @media(max-width:1180px){
+    .listen-grid{grid-template-columns:1fr 1fr}
+    .listen-card:last-child:nth-child(odd){grid-column:1/-1}
+  }
   @media(max-width:1024px){
     .release-grid,.news-grid,.div-grid{grid-template-columns:repeat(2,1fr)}
     .listen-grid{grid-template-columns:1fr}
@@ -526,6 +538,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <span>Baranga — Badman · 290K+ streams</span>
     <span>Mr Fallback — Ndi Solidi Mu</span>
     <span>Baranga — Party Riddim</span>
+    <span>Mike 1ne — Love Look What You Made Me Do (EP)</span>
+    <span>Tungi &amp; Mike 1ne — Siteesa</span>
     <span><b>Coming soon</b> King Avo joins the 7H family</span>
     <span><b>Demos open</b> send your music to 7H</span>
   </div>
@@ -578,8 +592,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         </span>
         <div class="thumb"><span class="mono">MF</span><img src="images/artist-mr-fallback.jpg" alt="Mr Fallback press photo" loading="lazy"><span class="spot-badge"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></span></div>
       </div>
-      <div class="artist-row prospect" data-img="images/artist-king-avo.jpg" data-mono="KA" data-href="https://open.spotify.com/artist/1llWoTGNewTr5913U5GGUm" role="link" tabindex="0" aria-label="King Avo on Spotify — joining 7H soon">
+      <div class="artist-row" data-img="images/artist-mike-1ne.jpg" data-mono="M1" data-href="https://open.spotify.com/artist/4DA5LBW4NWzVLcVSOrBLsI" role="link" tabindex="0" aria-label="Mike 1ne on Spotify — open in new tab">
         <span class="idx">03</span>
+        <a class="name" href="https://open.spotify.com/artist/4DA5LBW4NWzVLcVSOrBLsI" target="_blank" rel="noopener noreferrer">Mike 1ne</a>
+        <span class="meta">
+          <span class="genre">Reggae · R&amp;B · Afrobeat</span><br>
+          <span class="role-tag">In-house producer &amp; engineer</span><br>
+          <span class="meta-links">
+            <a class="spot-link" href="https://open.spotify.com/artist/4DA5LBW4NWzVLcVSOrBLsI" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>
+              Spotify
+            </a>
+            <a class="spot-link am-link" href="https://music.apple.com/us/artist/mike-1ne/1840503931" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              Apple
+            </a>
+          </span>
+        </span>
+        <div class="thumb"><span class="mono">M1</span><img src="images/artist-mike-1ne.jpg" alt="Mike 1ne in his studio" loading="lazy"><span class="role-ribbon">Producer</span><span class="spot-badge"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></span></div>
+      </div>
+      <div class="artist-row prospect" data-img="images/artist-king-avo.jpg" data-mono="KA" data-href="https://open.spotify.com/artist/1llWoTGNewTr5913U5GGUm" role="link" tabindex="0" aria-label="King Avo on Spotify — joining 7H soon">
+        <span class="idx">04</span>
         <a class="name" href="https://open.spotify.com/artist/1llWoTGNewTr5913U5GGUm" target="_blank" rel="noopener noreferrer">King Avo</a>
         <span class="meta">
           <span class="genre">Afrobeat · Dancehall · Hip-Hop</span><br>
@@ -762,6 +795,57 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           </div>
         </div>
       </article>
+
+      <article class="release reveal has-strip" data-spotify="https://open.spotify.com/track/4GDB9tMylfRQavVoI6UOkq" role="link" tabindex="0" aria-label="Tungi &amp; Mike 1ne — Siteesa: open on Spotify">
+        <img class="cover-bg" src="images/cover-siteesa.jpg" alt="“Siteesa” cover art — Tungi &amp; Mike 1ne" loading="lazy">
+        <div class="corner-btns">
+          <a class="corner-btn spot" href="https://open.spotify.com/track/4GDB9tMylfRQavVoI6UOkq" target="_blank" rel="noopener noreferrer" aria-label="Play Siteesa on Spotify"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></a>
+          <a class="corner-btn am" href="https://music.apple.com/us/album/siteesa/1888289462?i=1888289464" target="_blank" rel="noopener noreferrer" aria-label="Open Siteesa on Apple Music"><svg viewBox="0 0 24 24"><path d="M23.99 6.12c-.05-.78-.13-1.66-.41-2.4-.32-.84-.83-1.5-1.56-1.97C20.93 1 19.39.66 17.2.62c-.08 0-.16-.01-.23-.01H7.03c-.08 0-.15 0-.23.01-2.19.04-3.73.38-4.82 1.13C1.25 2.22.74 2.88.42 3.72.14 4.46.06 5.34.01 6.12c-.02.31-.01.62-.01.93v9.9c0 .31-.01.62.01.93.05.78.13 1.66.41 2.4.32.84.83 1.5 1.56 1.97 1.09.75 2.63 1.09 4.82 1.13.08 0 .15.01.23.01h9.94c.07 0 .15 0 .23-.01 2.19-.04 3.73-.38 4.82-1.13.73-.47 1.24-1.13 1.56-1.97.28-.74.36-1.62.41-2.4.02-.31.01-.62.01-.93v-9.9c0-.31.01-.62-.01-.93zM17.64 6.81c.14 1.37.86 2.34 2.14 2.91-.49 1.29-1.54 2.12-2.83 2.31-.31.05-.61.07-.91.06-1.27-.06-2.29-.68-2.79-1.83-.37-.86-.44-1.76-.21-2.68.42-1.64 1.9-2.72 3.6-2.59.05.01.1 0 .15 0 .34.01.6.18.85.41zm-3.36-3.56c1.07.13 1.99.6 2.67 1.46.47.59.77 1.26.94 1.97-.14.03-.28.06-.42.08-1.55.21-2.95-.53-3.63-1.93-.24-.48-.35-1-.36-1.53.28-.03.54-.06.8-.05z"/></svg></a>
+        </div>
+        <div class="release-info">
+          <span class="r-type">Feature · 2026</span>
+          <h3>Siteesa</h3>
+          <p>Tungi &amp; Mike 1ne</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/track/4GDB9tMylfRQavVoI6UOkq" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/siteesa/1888289462?i=1888289464" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="release reveal" data-spotify="https://open.spotify.com/album/0TrL2jfJpf0FoBoVViirzd" role="link" tabindex="0" aria-label="Mike 1ne — Love Look What You Made Me Do: open on Spotify">
+        <img class="cover-bg" src="images/cover-love-look.jpg" alt="“Love Look What You Made Me Do” EP cover by Mike 1ne" loading="lazy">
+        <div class="corner-btns">
+          <a class="corner-btn spot" href="https://open.spotify.com/album/0TrL2jfJpf0FoBoVViirzd" target="_blank" rel="noopener noreferrer" aria-label="Play Love Look What You Made Me Do on Spotify"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></a>
+          <a class="corner-btn am" href="https://music.apple.com/us/album/love-look-what-you-made-me-do-ep/1845577640" target="_blank" rel="noopener noreferrer" aria-label="Open Love Look What You Made Me Do on Apple Music"><svg viewBox="0 0 24 24"><path d="M23.99 6.12c-.05-.78-.13-1.66-.41-2.4-.32-.84-.83-1.5-1.56-1.97C20.93 1 19.39.66 17.2.62c-.08 0-.16-.01-.23-.01H7.03c-.08 0-.15 0-.23.01-2.19.04-3.73.38-4.82 1.13C1.25 2.22.74 2.88.42 3.72.14 4.46.06 5.34.01 6.12c-.02.31-.01.62-.01.93v9.9c0 .31-.01.62.01.93.05.78.13 1.66.41 2.4.32.84.83 1.5 1.56 1.97 1.09.75 2.63 1.09 4.82 1.13.08 0 .15.01.23.01h9.94c.07 0 .15 0 .23-.01 2.19-.04 3.73-.38 4.82-1.13.73-.47 1.24-1.13 1.56-1.97.28-.74.36-1.62.41-2.4.02-.31.01-.62.01-.93v-9.9c0-.31.01-.62-.01-.93zM17.64 6.81c.14 1.37.86 2.34 2.14 2.91-.49 1.29-1.54 2.12-2.83 2.31-.31.05-.61.07-.91.06-1.27-.06-2.29-.68-2.79-1.83-.37-.86-.44-1.76-.21-2.68.42-1.64 1.9-2.72 3.6-2.59.05.01.1 0 .15 0 .34.01.6.18.85.41zm-3.36-3.56c1.07.13 1.99.6 2.67 1.46.47.59.77 1.26.94 1.97-.14.03-.28.06-.42.08-1.55.21-2.95-.53-3.63-1.93-.24-.48-.35-1-.36-1.53.28-.03.54-.06.8-.05z"/></svg></a>
+        </div>
+        <div class="release-info">
+          <span class="r-type">EP · 2025</span>
+          <h3>Love Look What You Made Me Do</h3>
+          <p>Mike 1ne</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/album/0TrL2jfJpf0FoBoVViirzd" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/love-look-what-you-made-me-do-ep/1845577640" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="release reveal" data-spotify="https://open.spotify.com/album/70bRxZOS19STmxNCiQYtu0" role="link" tabindex="0" aria-label="Mike 1ne — Dance Di Night Away: open on Spotify">
+        <img class="cover-bg" src="images/cover-dance-di-night-away.jpg" alt="“Dance Di Night Away” single cover by Mike 1ne" loading="lazy">
+        <div class="corner-btns">
+          <a class="corner-btn spot" href="https://open.spotify.com/album/70bRxZOS19STmxNCiQYtu0" target="_blank" rel="noopener noreferrer" aria-label="Play Dance Di Night Away on Spotify"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></a>
+          <a class="corner-btn am" href="https://music.apple.com/us/album/dance-di-night-away-single/1841616321" target="_blank" rel="noopener noreferrer" aria-label="Open Dance Di Night Away on Apple Music"><svg viewBox="0 0 24 24"><path d="M23.99 6.12c-.05-.78-.13-1.66-.41-2.4-.32-.84-.83-1.5-1.56-1.97C20.93 1 19.39.66 17.2.62c-.08 0-.16-.01-.23-.01H7.03c-.08 0-.15 0-.23.01-2.19.04-3.73.38-4.82 1.13C1.25 2.22.74 2.88.42 3.72.14 4.46.06 5.34.01 6.12c-.02.31-.01.62-.01.93v9.9c0 .31-.01.62.01.93.05.78.13 1.66.41 2.4.32.84.83 1.5 1.56 1.97 1.09.75 2.63 1.09 4.82 1.13.08 0 .15.01.23.01h9.94c.07 0 .15 0 .23-.01 2.19-.04 3.73-.38 4.82-1.13.73-.47 1.24-1.13 1.56-1.97.28-.74.36-1.62.41-2.4.02-.31.01-.62.01-.93v-9.9c0-.31.01-.62-.01-.93zM17.64 6.81c.14 1.37.86 2.34 2.14 2.91-.49 1.29-1.54 2.12-2.83 2.31-.31.05-.61.07-.91.06-1.27-.06-2.29-.68-2.79-1.83-.37-.86-.44-1.76-.21-2.68.42-1.64 1.9-2.72 3.6-2.59.05.01.1 0 .15 0 .34.01.6.18.85.41zm-3.36-3.56c1.07.13 1.99.6 2.67 1.46.47.59.77 1.26.94 1.97-.14.03-.28.06-.42.08-1.55.21-2.95-.53-3.63-1.93-.24-.48-.35-1-.36-1.53.28-.03.54-.06.8-.05z"/></svg></a>
+        </div>
+        <div class="release-info">
+          <span class="r-type">Single · 2025</span>
+          <h3>Dance Di Night Away</h3>
+          <p>Mike 1ne</p>
+          <div class="platforms">
+            <a class="plat-link spot" href="https://open.spotify.com/album/70bRxZOS19STmxNCiQYtu0" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/album/dance-di-night-away-single/1841616321" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -799,6 +883,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         </div>
         <iframe title="Mr Fallback — Spotify player" loading="lazy"
           src="https://open.spotify.com/embed/artist/3T80e6ycqFcK1a7M8fE5VP?utm_source=7h&theme=0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      </div>
+      <div class="listen-card reveal">
+        <div class="lc-head">
+          <span class="lc-pill">Mike 1ne · Artist</span>
+          <span class="lc-btns">
+            <a class="plat-link spot" href="https://open.spotify.com/artist/4DA5LBW4NWzVLcVSOrBLsI" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.18.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg>Spotify</a>
+            <a class="plat-link am" href="https://music.apple.com/us/artist/mike-1ne/1840503931" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>Apple Music</a>
+          </span>
+        </div>
+        <iframe title="Mike 1ne — Spotify player" loading="lazy"
+          src="https://open.spotify.com/embed/artist/4DA5LBW4NWzVLcVSOrBLsI?utm_source=7h&theme=0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
       </div>
     </div>
@@ -1024,6 +1120,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <a href="https://www.instagram.com/mr_fallback01" target="_blank" rel="noopener noreferrer">Instagram · @mr_fallback01</a>
         <a href="https://www.tiktok.com/@mrfallback6" target="_blank" rel="noopener noreferrer">TikTok · @mrfallback6</a>
         <a href="https://www.youtube.com/@mrfallback01" target="_blank" rel="noopener noreferrer">YouTube · @mrfallback01</a>
+      </div>
+      <div class="foot-col">
+        <h4>Mike 1ne</h4>
+        <a class="spot" href="https://open.spotify.com/artist/4DA5LBW4NWzVLcVSOrBLsI" target="_blank" rel="noopener noreferrer">Spotify</a>
+        <a href="https://music.apple.com/us/artist/mike-1ne/1840503931" target="_blank" rel="noopener noreferrer">Apple Music</a>
+        <a href="https://www.instagram.com/mike.1ne_/" target="_blank" rel="noopener noreferrer">Instagram · @mike.1ne_</a>
+        <a href="https://www.tiktok.com/@mike.1ne_" target="_blank" rel="noopener noreferrer">TikTok · @mike.1ne_</a>
+        <a href="https://www.youtube.com/channel/UCcaHwYGUVmcmkPqdsEXwUsA" target="_blank" rel="noopener noreferrer">YouTube · Mike 1ne (Topic)</a>
       </div>
     </div>
     <div class="foot-bottom">
