@@ -42,13 +42,23 @@ Notes:
 - **Roster / releases / links:** all content is in `index.html` — each artist, release and link is clearly marked.
 - **Artist photos:** `images/artist-*.jpg` — replace a file with a real press photo of the same name (portrait orientation works best).
   `artist-mike-1ne.jpg` is the photo Mike 1ne supplied, cropped to a 4:5 portrait (the Instagram mute icon is cropped out).
+  `artist-smokie-cee.jpg` is currently the *Island Kiss* single artwork (his official profile image on Spotify, Apple Music and TikTok),
+  cropped 4:5 — replace it with a real portrait (same filename, 4:5, at least 640×800) once he supplies one.
 - **Cover art:** `images/cover-*.jpg`.
 - Roster & social handles: Spotify, Apple Music, Instagram, TikTok and YouTube links live inline next to each artist.
 - **Mike 1ne (in-house producer & engineer):** roster row 03, three cards in *Fresh Out* (EP *Love Look What You Made Me Do*,
   single *Dance Di Night Away*, and his feature on Tungi's *Siteesa* — marked "Feature" and linked at track level), a Spotify
-  player in *Now Playing*, and a footer column. He is **not** counted in the "Signed Artists" stat (still 2).
+  player in *Now Playing*, and a footer column. He is **not** counted in the "Signed Artists" stat (that counts Baranga,
+  Mr Fallback and Smokie Cee = 3); he has his own "In-House Producer" stat instead.
   Spotify artist `4DA5LBW4NWzVLcVSOrBLsI` · Apple Music artist `1840503931` · Instagram `@mike.1ne_` · TikTok `@mike.1ne_`.
   The footer's YouTube link is his auto-generated *Topic* channel — replace it with his own channel URL if he starts one.
+- **Smokie Cee:** roster row 04, two cards in *Fresh Out* (his single *Island Kiss* ft. Baranga, and Baranga's single *Confirm*,
+  which is co-billed to him), a Spotify player for *Island Kiss* in *Now Playing*, a footer column and a ticker line.
+  Counted in "Signed Artists". Spotify artist `1sdWhxn7YxWfsDIEUCwRwt` · Apple Music artist `1798636079` ·
+  TikTok `@smokie_ceee` · YouTube `@smokie_cee`. No Instagram link yet — none could be verified.
+  Spotify also has an empty duplicate profile (`4w8cimov72F0F1kefN5klH`) credited on *Confirm*; his distributor can merge the two.
+- **Now Playing players** are 352 px tall (Spotify's standard large embed) so every card lines up. The grid is 2 × 2; add an artist
+  by copying a `.listen-card` (an odd count automatically stretches the last card across the row).
 
 ## Contacts
 
